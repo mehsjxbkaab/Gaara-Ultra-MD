@@ -1,0 +1,22 @@
+name: Gaara-Deploy
+on:
+  workflow_dispatch: # يسمح لك بتشغيل البوت يدوياً بضغطة زر
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Start Bot
+        run: node index.js
+        
